@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Infinite Scrool</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Implementing Infinite Scrolling</h1>
+    <p>
+      This example demos an infinite scroll UI.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>
+      The last table row of the table generated on the server side, has an ic-append-from attribute that loads the next page of results, and that uses ic-trigger-on to trigger the request when the row is scrolled into view.
+      The row targets the body of the table to append to using the ic-target attribute and shows an indicator for the request via the ic-indicator attribute.
+    </p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'is_user_list' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+  </div>
+</div>
+{% endblock %}

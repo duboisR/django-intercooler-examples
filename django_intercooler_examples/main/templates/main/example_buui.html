@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block extend_css %}
+<style>
+.ic-transitioning tr.deactivate td {
+  background: lightcoral;
+}
+.ic-transitioning tr.activate td {
+  background: darkseagreen;
+}
+tr td {
+  transition: all 1.2s;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Bulk Update UI</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Implementing A Bulk Update UI</h1>
+    <p>
+      This example demos a bulk update UI for a table of data.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>The entire table is wrapped in a form tag, with checkboxes on each row indicating the row id.</p>
+    <p>A drop-down button sits outside the form (not strictly necessary) and includes the form with the ic-include attribute. The drop-down button targets the body of the table using the ic-target attribute and specifies an request indicator via the ic-indicator attribute.</p>
+    <p>The drop-down button has two options, "Active" and "Deactive" which issue posts via ic-post-to to /activate and /deactivate respectively. Both options inherit all the attibutes specified by the parent dropdown button.</p>
+    <p>When the server side handles a post it re-renders all the rows of the table, and applies a class, activate or deactivate to a row that is activated or deactivated. Using CSS transitions and the ic-transitioning, we can flash the color of these rows green or red, respectively.</p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'buui_user_list' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+  </div>
+</div>
+{% endblock %}

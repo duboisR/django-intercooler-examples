@@ -1,0 +1,15 @@
+{% for user in user_list %}
+<tr
+  {% if forloop.last and page_obj.has_next %}
+  ic-append-from="{% url 'is_user_list' %}?page={{page_obj.next_page_number}}"
+  ic-trigger-on="scrolled-into-view"
+  ic-target="#usersTable"
+  ic-indicator="#loadingUsersIndicator"
+  {% endif %}
+  >
+  <td>{{user.pk}}</td>
+  <td>{{user.username}}</td>
+  <td>{{user.get_full_name}}</td>
+  <td>{{user.email}}</td>
+</tr>
+{% endfor %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Examples</li>
+    </ol>
+  </nav>
+
+  <h1>Django Intercooler Examples</h1>
+  <p>
+    Intercooler is a client-side library that makes it easy to define AJAX requests via HTML attributes, and expects HTML response that gets inserted into the page.
+    This library seems like the best candidate for boosting a Django project without javascript.
+  </p>
+  <p>
+    Below are a series of examples demonstrating common UI/UX problems being solved with intercooler.
+    All examples are inspired by the <a href="https://intercoolerjs.org/examples/index.html" target="_blank">Intercooler documentation</a>.
+  </p>
+
+  <h2>Examples</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="{% url 'example_cte' %}">Click To Edit</a></td>
+        <td>A simple demo of inline editing of data within a page.</td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'example_is' %}">Infinite Scroll</a></td>
+        <td>Loading more elements when the bottom of a page is scrolled into view.</td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'example_ctl' %}">Click To Load</a></td>
+        <td>Similar to the infinite scroll demo, but requires that a user explicitly click on a button to load more items.</td>
+      </tr>
+      <tr>
+        <td><a href="{% url 'example_buui' %}">Bulk Update UI</a></td>
+        <td>A demo of a table-driven UI, where multiple rows are updated at once via checkbox selection.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

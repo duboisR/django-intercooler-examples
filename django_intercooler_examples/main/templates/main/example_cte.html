@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Click To Edit</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Implementing A Click To Edit UI</h1>
+    <p>
+      This example offers an inline click-to-edit UI for a user.
+      When you click the button below the current UI will be replaced with an editing UI, without a full browser refresh.
+      You can then update the user information or cancel the edit.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>The 'Click To Edit' button uses ic-get-from to issue a GET to /user/USER_ID/update/, and targets the div surrounding the entire User UI using ic-target.</p>
+    <p>The server returns a form that replaces the content of the div. The form uses the ic-put-to to issue a PUT to /user/USER_ID/update/ and targets the same enclosing div.</p>
+    <p>The 'Cancel' button uses ic-get-from to issue a GET to /user/USER_ID/detail/ and targets the same div. The server-side handler at /user/USER_ID/detail/ should use the ic-request or ic-target parameter to differentiate between a full window request and this partial request.</p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'cte_user_detail' user.pk %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+  </div>
+</div>
+{% endblock %}

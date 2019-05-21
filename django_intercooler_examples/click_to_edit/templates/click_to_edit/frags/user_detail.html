@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>{{object.username}}</h1>
+  <hr />
+
+  <p>Email: {{object.email}}</p>
+  <p>Name: {{object.get_full_name}}</p>
+
+  <button class="btn btn-primary"
+    ic-get-from="{% url 'cte_user_update' object.pk %}"
+    ic-target="#userCard"
+    ic-indicator="#loadingUserIndicator">
+    Click To Edit
+  </button>
+</div>

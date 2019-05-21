@@ -1,0 +1,12 @@
+{% for user in user_list %}
+<tr
+  {% if user.id|stringformat:"i" in ids %}
+    {% if user.is_active %}class="activate"{% else %}class="deactivate"{% endif %}
+  {% endif %}>
+  <td><input type="checkbox" name="ids" value="{{user.pk}}" /></td>
+  <td>{{user.pk}}</td>
+  <td>{{user.username}}</td>
+  <td>{{user.email}}</td>
+  <td>{% if user.is_active %}Active{% else %}Inactive{% endif %}</td>
+</tr>
+{% endfor %}

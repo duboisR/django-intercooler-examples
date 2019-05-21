@@ -1,0 +1,23 @@
+{% for user in user_list %}
+<tr>
+  <td>{{user.pk}}</td>
+  <td>{{user.username}}</td>
+  <td>{{user.get_full_name}}</td>
+  <td>{{user.email}}</td>
+</tr>
+
+{% if forloop.last and page_obj.has_next %}
+<tr>
+  <td colspan="4">
+    <center> <!-- lol -->
+      <button class="btn btn-default"
+        ic-get-from="{% url 'is_user_list' %}?page={{page_obj.next_page_number}}"
+        ic-target="closest tr"
+        ic-replace-target="true">
+        Load More Users... <i class="fa fa-spinner fa-spin ic-indicator" style="display:none"></i>
+      </button>
+    </center>
+  </td>
+</tr>
+{% endif %}
+{% endfor %}

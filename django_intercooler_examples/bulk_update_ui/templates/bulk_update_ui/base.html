@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <div class="dropdown" ic-indicator="#loadingUserIndicator" ic-include="#usersForm" ic-target="#usersTable">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      Bulk Actions <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li class="dropdown-item"><a ic-post-to="{% url 'buui_activate_user_list' %}">Activate</a></li>
+      <li class="dropdown-item"><a ic-post-to="{% url 'buui_deactivate_user_list' %}">Deactivate</a></li>
+    </ul>
+  </div>
+  <i class="fa fa-spinner fa-spin" id="loadingUserIndicator" style="display:none"></i>
+
+  <form id="usersForm" class="mt-4">
+    {% csrf_token %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th scope="col">ID #</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Active</th>
+        </tr>
+      </thead>
+      <tbody id="usersTable">
+        {% include "bulk_update_ui/frags/user_list.html" with user_list=user_list %}
+      </tbody>
+    </table>
+  <form>
+</div>
