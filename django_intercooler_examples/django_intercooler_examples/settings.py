@@ -49,6 +49,7 @@ INSTALLED_APPS.extend([
     'infinite_scroll',
     'click_to_load',
     'bulk_update_ui',
+    'lazily_loading_an_elt',
 ])
 
 MIDDLEWARE = [

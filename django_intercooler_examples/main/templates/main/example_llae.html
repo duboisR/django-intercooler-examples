@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Lazy Loading An Element</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Lazy Loading A Div</h1>
+    <p>
+      This example lazily loads an expensive to calculate graph in a div within the page, allowing the page to respond immediately.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>
+      A div within the page loads a graph from another URL using the ic-get-from attribute. In order to trigger the loading when the page loads, the ic-trigger-on attribute is set to "load".
+    </p>
+    <p>
+      A progress spinner is in the div when it is first rendered, to let the user know that the lazily loaded content is in flight.
+    </p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'llae_graph' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+  </div>
+</div>
+{% endblock %}

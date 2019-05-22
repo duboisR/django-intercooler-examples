@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h3>Graph</h3>
+
+  <div class="py-4"
+    ic-get-from="{% url 'llae_graph_img' %}"
+    ic-trigger-on="load"
+    ic-indicator="#loadingGraphIndicator">
+  </div>
+  <div id="loadingGraphIndicator" class="text-center" style="display: none">
+    <i class="fa fa-spinner fa-spin fa-2x"></i>
+  </div>
+</div>

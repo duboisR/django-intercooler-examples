@@ -24,4 +24,5 @@ urlpatterns = [
     path('infinite_scroll/', include('infinite_scroll.urls')),
     path('click_to_load/', include('click_to_load.urls')),
     path('bulk_update_ui/', include('bulk_update_ui.urls')),
+    path('lazily_loading_an_elt/', include('lazily_loading_an_elt.urls')),
 ]

@@ -27,3 +27,35 @@ class ClickToLoadTemplateView(TemplateView):
 
 class BulkUpdateUITemplateView(TemplateView):
     template_name = "main/example_buui.html"
+
+
+class LazilyLoadingAnElementView(TemplateView):
+    template_name = "main/example_llae.html"
+
+
+class InlineFormValidationView(TemplateView):
+    template_name = "main/example_ifv.html"
+
+
+class InlineRowRemovalView(TemplateView):
+    template_name = "main/example_irr.html"
+
+
+class ActiveSearchView(TemplateView):
+    template_name = "main/example_as.html"
+
+
+class DependentSelectView(TemplateView):
+    template_name = "main/example_ds.html"
+
+
+class HistorySupportView(TemplateView):
+    template_name = "main/example_hs.html"
+
+
+class JobRunnerView(TemplateView):
+    template_name = "main/example_jr.html"
+
+
+class BootstrapConfirmView(TemplateView):
+    template_name = "main/example_bc.html"
