@@ -1,1 +1,40 @@
-TODO
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Inline Form Validation</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Inline Form Validation</h1>
+    <p>
+      This example validates an email address format and uniqueness (only test@test.com will work) when the input fires a 'change' event.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>
+      A intercooler-based form tag is being used.
+    </p>
+    <p>
+      Within the form tag is an input for an email that does server side validation. It does this by using a ic-post-to to post the email to the server when the input changes. It targets the enclosing div tag, using the ic-target attribute and the closest syntax. Because we need to replace the entire div to get the proper styling, the ic-replace-target attribute is set to true
+    </p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'ifv_user' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+
+    <h2 class="my-4">Source Code</h2>
+    <p>The source code can be found in this <a href="https://github.com/duboisR/django_intercooler_examples/tree/master/django_intercooler_examples/inline_form_validation" target="_blank">repository</a>.</p>
+  </div>
+</div>
+{% endblock %}

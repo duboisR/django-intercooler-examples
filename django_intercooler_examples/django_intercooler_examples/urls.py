@@ -25,4 +25,5 @@ urlpatterns = [
     path('click_to_load/', include('click_to_load.urls')),
     path('bulk_update_ui/', include('bulk_update_ui.urls')),
     path('lazily_loading_an_elt/', include('lazily_loading_an_elt.urls')),
+    path('inline_form_validation/', include('inline_form_validation.urls')),
 ]

@@ -50,6 +50,7 @@ INSTALLED_APPS.extend([
     'click_to_load',
     'bulk_update_ui',
     'lazily_loading_an_elt',
+    'inline_form_validation',
 ])
 
 MIDDLEWARE = [

@@ -1,0 +1,19 @@
+{% load widget_tweaks %}
+<div class="form-group row" id="emailField">
+  <label class="col-sm-2 col-form-label" for="exampleInputEmail1">
+    Email
+    <div id="loadingEmailIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+  </label>
+  <div class="col-sm-10">
+    {% url 'ifv_user_email' as post_url %}
+    {% render_field form.email class="form-control" ic-post-to=post_url ic-target="#emailField" ic-replace-target="true" ic-indicator="#loadingEmailIndicator" %}
+  </div>
+
+  {% if form.email.errors %}
+  <div class="alert alert-danger col-sm-10 mx-auto my-3">
+    {{form.email.errors.0}}
+  </div>
+  {% endif %}
+</div>
