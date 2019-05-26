@@ -10,19 +10,19 @@
     {% csrf_token %}
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label" for="exampleInputEmail1">Email</label>
+      <label class="col-sm-2 col-form-label" for="{{form.email.auto_id}}">Email</label>
       <div class="col-sm-10">
         {% render_field form.email class="form-control" %}
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label" for="exampleInputPassword1">First Name</label>
+      <label class="col-sm-2 col-form-label" for="{{form.first_name.auto_id}}">First Name</label>
       <div class="col-sm-10">
         {% render_field form.first_name class="form-control" %}
       </div>
     </div>
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label" for="exampleInputPassword1">Last Name</label>
+      <label class="col-sm-2 col-form-label" for="{{form.last_name.auto_id}}">Last Name</label>
       <div class="col-sm-10">
         {% render_field form.last_name class="form-control" %}
       </div>
