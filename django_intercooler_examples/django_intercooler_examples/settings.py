@@ -52,6 +52,7 @@ INSTALLED_APPS.extend([
     'lazily_loading_an_elt',
     'inline_form_validation',
     'inline_row_remove',
+    'active_search',
 ])
 
 MIDDLEWARE = [

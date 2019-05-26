@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <form action="" method="post" class="m-0"
+    ic-post-to="{% url 'as_user_list' %}"
+    ic-trigger-delay="500ms"
+    ic-target="#usersTable">
+    {% csrf_token %}
+
+    <div class="form-group row">
+      <input class="form-control col-sm-6" type="text" name="search" placeholder="Begin Typing To Search Users..."
+        ic-trigger-on="keyup changed"/>
+      <i class="col-sm-6 fa fa-spinner fa-spin ic-indicator" style="display:none"></i>
+    </div>
+  </form>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID #</th>
+        <th scope="col">Username</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody id="usersTable">
+      {% include "click_to_load/frags/user_list.html" with user_list=user_list %}
+    </tbody>
+  </table>
+</div>

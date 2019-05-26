@@ -27,4 +27,5 @@ urlpatterns = [
     path('lazily_loading_an_elt/', include('lazily_loading_an_elt.urls')),
     path('inline_form_validation/', include('inline_form_validation.urls')),
     path('inline_row_remove/', include('inline_row_remove.urls')),
+    path('active_search/', include('active_search.urls')),
 ]
