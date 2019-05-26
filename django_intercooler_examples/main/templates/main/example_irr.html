@@ -1,1 +1,53 @@
 TODO
+{% extends 'base.html' %}
+
+{% block extend_css %}
+<style>
+tr.ic-removing td {
+  opacity: 0;
+  transition: all 1s ease;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Inline Row Removal</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Deleting A Table Row</h1>
+    <p>
+      This example validates an email address format and uniqueness (only test@test.com will work) when the input fires a 'change' event.This example demos a delete button that removes a table row upon completion. A confirmation popup is specified at the tbody level, so all buttons share the same confirmation message.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>
+      Each row has a button with a ic-delete-from attribute set up to delete the row from the server.
+    </p>
+    <p>
+      The table body has an ic-target set to closest tr and causes a confirmation message with an ic-confirm attribute. The delete buttons in the table inherit these attributes.
+    </p>
+    <p>
+      The server side returns an empty response, with the special header X-IC-Remove set to 1s, which tells intercooler to remove the target (in this case, the closest row) after 1 second, allowing for a CSS3 transition to fade the row out.
+    </p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'irr_user_list' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+
+    <h2 class="my-4">Source Code</h2>
+    <p>The source code can be found in this <a href="https://github.com/duboisR/django_intercooler_examples/tree/master/django_intercooler_examples/inline_row_remove" target="_blank">repository</a>.</p>
+  </div>
+</div>
+{% endblock %}

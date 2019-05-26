@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <form id="deleteFrom" >
+      {% csrf_token %}
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID #</th>
+        <th scope="col">Username</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="usersTable">
+      {% for user in user_list %}
+      <tr>
+        <td>{{user.pk}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.get_full_name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <button class="btn btn-danger"
+            ic-include="#deleteFrom"
+            ic-target="closest tr"
+            ic-delete-from="{% url 'irr_user_delete' user.pk %}">
+            Delete
+            <i class="ic-indicator fa fa-spinner fa-spin" style="display: none"></i>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

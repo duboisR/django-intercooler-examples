@@ -51,6 +51,7 @@ INSTALLED_APPS.extend([
     'bulk_update_ui',
     'lazily_loading_an_elt',
     'inline_form_validation',
+    'inline_row_remove',
 ])
 
 MIDDLEWARE = [
