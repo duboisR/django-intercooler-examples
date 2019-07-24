@@ -1,0 +1,10 @@
+{% load widget_tweaks %}
+
+<div id="userSelectInput" class="form-group row">
+  <label class="col-sm-2 col-form-label" for="{{form.user.auto_id}}">
+    User <i id="userSelectInputIndicator" class="fa fa-spinner fa-spin" style="display: none"></i>
+  </label>
+  <div class="col-sm-10">
+    {% render_field form.user class="form-control" %}
+  </div>
+</div>

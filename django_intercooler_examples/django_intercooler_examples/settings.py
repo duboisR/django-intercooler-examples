@@ -53,6 +53,7 @@ INSTALLED_APPS.extend([
     'inline_form_validation',
     'inline_row_remove',
     'active_search',
+    'dependent_select',
 ])
 
 MIDDLEWARE = [

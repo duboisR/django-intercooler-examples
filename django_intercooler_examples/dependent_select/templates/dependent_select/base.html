@@ -1,0 +1,23 @@
+{% load widget_tweaks %}
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Pick a Group / User</h1>
+    <hr />
+
+    <form action="" method="post" class="m-0">
+      {% csrf_token %}
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="{{form.group.auto_id}}">Group</label>
+        <div class="col-sm-10">
+          {% url 'ds_form_user_select' as ds_form_user_select_url %}
+          {% render_field form.group class="form-control" ic-post-to=ds_form_user_select_url ic-target="#userSelectInput" ic-replace-target="true" ic-indicator="#userSelectInputIndicator" %}
+        </div>
+      </div>
+      {% include "dependent_select/frags/user_select.html" with form=form %}
+
+      <button type="submit" class="btn btn-primary" disabled>Submit</button>
+    </form>
+  </div>
+</div>

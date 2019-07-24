@@ -59,3 +59,7 @@ class JobRunnerView(TemplateView):
 
 class BootstrapConfirmView(TemplateView):
     template_name = "main/example_bc.html"
+
+
+class SortableListView(TemplateView):
+    template_name = "main/example_sl.html"

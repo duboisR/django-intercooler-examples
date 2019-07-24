@@ -1,1 +1,36 @@
-TODO
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Dependent Select</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Dependent Select</h1>
+    <p>
+      This example has a form with a second drop-down dependent on the value of the first, with the values driven by a server-side data structure.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>The first dropdown issues a post to /models via a ic-get-to attributes. It does this when the value changes (the default trigger on inputs). It targets the user drop down by CSS ID using the ic-target attribute, and displays a spinner via the ic-indicator attribute.</p>
+    <p>The server side gets the group that was selected in the input via a request parameter and renders an select with all the user available for that group.</p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'ds_form' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+
+    <h2 class="my-4">Source Code</h2>
+    <p>The source code can be found in this <a href="https://github.com/duboisR/django_intercooler_examples/tree/master/django_intercooler_examples/dependent_select" target="_blank">repository</a>.</p>
+  </div>
+</div>
+{% endblock %}
