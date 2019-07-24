@@ -54,6 +54,7 @@ INSTALLED_APPS.extend([
     'inline_row_remove',
     'active_search',
     'dependent_select',
+    'history_support',
 ])
 
 MIDDLEWARE = [

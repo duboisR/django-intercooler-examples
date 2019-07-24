@@ -29,4 +29,5 @@ urlpatterns = [
     path('inline_row_remove/', include('inline_row_remove.urls')),
     path('active_search/', include('active_search.urls')),
     path('dependent_select/', include('dependent_select.urls')),
+    path('history_support/', include('history_support.urls')),
 ]

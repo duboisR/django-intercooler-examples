@@ -1,1 +1,64 @@
-TODO
+{% extends 'base.html' %}
+
+{% block extend_css %}
+<style>
+#content.ic-transitioning div {
+  transition: all 800ms;
+  opacity: 0;
+}
+#content div {
+  transition: all 800ms;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">History Support</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">History Support</h1>
+    <p>
+      This example demonstrates history support in intercooler.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>
+      As you click between the tabs, the URL and history will be updated correctly, allowing back button support
+    </p>
+    <p>
+      The content div tells Intercooler that it should be snap-shotted for history, rather than the body of the page, by using the ic-history-elt attribute. The element that is snap-shotted for history should be stable across your entire site so that the UI can be reliably restored.
+    </p>
+    <p>
+      The navigation tabs parent ul targets a div with the ic-target attribute. This div encloses both the tabs and content, allowing the server side to render a new tab state as well as the new content.
+    </p>
+    <p>
+      The key element on the ul that enables history support is the ic-push-url attribute, which tells Intercooler to push the url into the location bar, with a new history entry, when a request is made.
+    </p>
+    <p>
+      Each tab has an ic-get-from attribute which points to the page for each respective tab. Because of the behavior inherited from the paren ul, the request will target the content div, will pick out the content tab-specific content from the response and will push a new entry into history.
+    </p>
+    <p>
+      We use some transition CSS to make the inner content (but not the tabs) fade in and out.
+    </p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'hs_tab' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+
+    <h2 class="my-4">Source Code</h2>
+    <p>The source code can be found in this <a href="https://github.com/duboisR/django_intercooler_examples/tree/master/django_intercooler_examples/history_support" target="_blank">repository</a>.</p>
+  </div>
+</div>
+{% endblock %}
