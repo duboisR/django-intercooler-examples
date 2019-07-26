@@ -1,0 +1,11 @@
+<div class="container">
+  {% if complete %}
+  <h1>Job Complete!</h1>
+  {% else %}
+  <h1>Job Running</h1>
+
+  <div class="progress progress-striped active" style="background-color: white;">
+      <div class="progress-bar" ic-style-src="width:{% url 'js_task_percent' %}" ic-poll="1s" style="width: 0%;"></div>
+  </div>
+  {% endif %}
+</div>

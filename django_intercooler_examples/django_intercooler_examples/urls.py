@@ -30,4 +30,5 @@ urlpatterns = [
     path('active_search/', include('active_search.urls')),
     path('dependent_select/', include('dependent_select.urls')),
     path('history_support/', include('history_support.urls')),
+    path('job_runner/', include('job_runner.urls')),
 ]

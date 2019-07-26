@@ -1,0 +1,6 @@
+<div class="jumbotron">
+  <!-- Automatically called by X-IC-Refresh -->
+  <div id="jobTask" ic-src="{% url 'jr_task_status' %}">
+    <button class="btn btn-primary" ic-post-to="{% url 'jr_task_run' %}" ic-target="#jobTask">Start Job</button>
+  </div>
+</div>

@@ -55,6 +55,7 @@ INSTALLED_APPS.extend([
     'active_search',
     'dependent_select',
     'history_support',
+    'job_runner',
 ])
 
 MIDDLEWARE = [
