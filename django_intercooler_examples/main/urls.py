@@ -5,7 +5,7 @@ from main.views import (
     ClickToLoadTemplateView, BulkUpdateUITemplateView,
     LazilyLoadingAnElementView, InlineFormValidationView, InlineRowRemovalView,
     ActiveSearchView, DependentSelectView, HistorySupportView, JobRunnerView,
-    BootstrapConfirmView, SortableListView,
+    SortableListView,
 )
 
 urlpatterns = [
@@ -21,6 +21,5 @@ urlpatterns = [
     path('dependent_select/', DependentSelectView.as_view(), name='example_ds'),
     path('history_support/', HistorySupportView.as_view(), name='example_hs'),
     path('job_runner/', JobRunnerView.as_view(), name='example_jr'),
-    path('bootstrap_confirm/', BootstrapConfirmView.as_view(), name='example_bc'),
     path('sortable_list/', SortableListView.as_view(), name='example_sl'),
 ]

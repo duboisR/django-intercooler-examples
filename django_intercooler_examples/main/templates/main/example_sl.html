@@ -1,1 +1,37 @@
-TODO
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'examples' %}">Examples</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Sortable List</li>
+    </ol>
+  </nav>
+
+  <div>
+    <h1 class="my-4">Sortable List</h1>
+    <p>
+      This demo shows how to integrate the excellent SortableJS library with Intercooler.
+    </p>
+
+    <h2 class="my-4">Explanation</h2>
+    <p>
+      Listen for the "sorted" event fired by Sortable and send the reordered list up to the server via AJAX
+    </p>
+
+    <h2 class="my-4">Demo</h2>
+    <div
+      ic-get-from="{% url 'sl_color_list' %}"
+      ic-trigger-on="load"
+      ic-indicator="#loadingExampleIndicator">
+    </div>
+    <div id="loadingExampleIndicator" class="text-center" style="display: none">
+      <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+
+    <h2 class="my-4">Source Code</h2>
+    <p>The source code can be found in this <a href="https://github.com/duboisR/django_intercooler_examples/tree/master/django_intercooler_examples/sortable_list" target="_blank">repository</a>.</p>
+  </div>
+</div>
+{% endblock %}

@@ -56,6 +56,7 @@ INSTALLED_APPS.extend([
     'dependent_select',
     'history_support',
     'job_runner',
+    'sortable_list',
 ])
 
 MIDDLEWARE = [

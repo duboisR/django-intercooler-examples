@@ -1,0 +1,5 @@
+{% for color in favoritecolor_list %}
+<li>
+  {{color.name}} <input type="hidden" name="colors" value="{{color.pk}}">
+</li>
+{% endfor %}
